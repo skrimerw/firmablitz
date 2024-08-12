@@ -19,46 +19,22 @@
     <div class="services__container container">
       <h2 class="section-title services__title">Unsere Leistungen im Überblick
         in Hamburg</h2>
-      <div class="services__cards">
-        <div class="services__card">
-          <img src="<?php bloginfo('template_url') ?>/images/house.png" class="services__card-img" />
-          <p class="services__card-text">
-            Haushaltsauflösung, Wohnungsauflösung, Nachlassräumung und
-            Nachlassankauf
-          </p>
-        </div>
-        <div class="services__card">
-          <img src="<?php bloginfo('template_url') ?>/images/recycle.png" class="services__card-img" />
-          <p class="services__card-text">
-            Entrümpelung und Entsorgung
-          </p>
-        </div>
-        <div class="services__card">
-          <img src="<?php bloginfo('template_url') ?>/images/trash.png" class="services__card-img" />
-          <p class="services__card-text">
-            Sperrmüll und Papiermüll Entsorgung
-          </p>
-        </div>
-        <div class="services__card">
-          <img src="<?php bloginfo('template_url') ?>/images/roll.png" class="services__card-img" />
-          <p class="services__card-text">
-            Wand- und Bodenbelagsentfernung
-            Tapeten- und Teppichentfernung
-          </p>
-        </div>
-        <div class="services__card">
-          <img src="<?php bloginfo('template_url') ?>/images/gear.svg" class="services__card-img" />
-          <p class="services__card-text">
-            Kostenlose Besichtigung, Beratung & Angebotsabgabe
-          </p>
-        </div>
-        <div class="services__card">
-          <img src="<?php bloginfo('template_url') ?>/images/contact.svg" class="services__card-img" />
-          <p class="services__card-text">
-            Festpreise und Termintreue
-          </p>
-        </div>
-      </div>
+      <?php if (have_rows('services')): ?>
+        <ul class="services__cards">
+          <?php while (have_rows('services')): the_row();
+            $image = get_sub_field('image');
+            $desc = get_sub_field('desc');
+          ?>
+            <li class="services__card">
+              <img src="<?php echo $image ?>" class="services__card-img" />
+              <p class="services__card-text">
+                <?php echo $desc ?>
+              </p>
+
+            </li>
+          <?php endwhile; ?>
+        </ul>
+      <?php endif; ?>
     </div>
   </section>
   <section class="about" id="about-us">
@@ -82,7 +58,23 @@
       <h2 class="benefits__title section-title">
         Ihr Vorteile mit Firma Blitz
       </h2>
-      <?php the_field('benefits') ?>
+      <?php if (have_rows('benefits')): ?>
+        <ol class="benefits__content">
+          <?php while (have_rows('benefits')): the_row();
+            $title = get_sub_field('title');
+            $desc = get_sub_field('desc');
+          ?>
+            <li>
+              <h3 class="benefits__item-title">
+                <?php echo $title ?>
+              </h3>
+              <p class="benefits__item-text">
+                <?php echo $desc ?>
+              </p>
+            </li>
+          <?php endwhile; ?>
+        </ol>
+      <?php endif; ?>
     </div>
   </section>
   <section class="quality">
@@ -126,12 +118,7 @@
         Nutzen Sie unseren kostenlosen Rückruf-Service! Wir benötigen nur die Angabe Ihrer Telefonummer und eventuell
         den Zeitpunkt wann wir Sie zurückrufen dürfen. Wir melden uns dann schnellstmöglich bei Ihnen.
       </p>
-      <form action="#" class="call__form">
-        <input type="text" class="call__input" name="phone" placeholder="Telefonnummer">
-        <input type="date" class="call__input" name="date" placeholder="Datum">
-        <input type="time" class="call__input" name="time" placeholder="Uhrzeit">
-        <button type="submit" class="call__btn">Rückruf anforden</button>
-      </form>
+      <?php echo do_shortcode('[contact-form-7 id="671b22d" title="Услуга обратного звонка" html_class="call__form"]') ?>
     </div>
   </section>
   <? get_footer() ?>

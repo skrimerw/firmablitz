@@ -74,14 +74,7 @@
             </li>
           </ul>
         </div>
-        <form action="#" class="contacts__form">
-          <input type="email" class="contacts__input" name="email" placeholder="Email">
-          <input type="text" class="contacts__input" name="name" placeholder="Name">
-          <textarea name="message" id="" placeholder="Nachricht" class="contacts__message contacts__input"></textarea>
-          <button class="contacts__btn">
-            Absenden
-          </button>
-        </form>
+        <?php echo do_shortcode('[contact-form-7 id="9e5993e" title="Контактная форма" html_class="contacts__form"]') ?>
       </div>
     </div>
   </section>

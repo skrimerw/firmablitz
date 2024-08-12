@@ -331,6 +331,7 @@ body:has(.mobile-nav--show) {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 90px 40px;
+  list-style: none;
 }
 
 @media (max-width: 1024px) {
@@ -690,6 +691,10 @@ body:has(.mobile-nav--show) {
   }
 }
 
+.request__form {
+  max-width: 480px;
+}
+
 .request__form p {
   position: relative;
   display: flex;
@@ -779,19 +784,23 @@ body:has(.mobile-nav--show) {
   }
 }
 
-.call__form {
+.call__form p {
+  position: relative;
+  display: flex;
+  gap: 20px;
   width: fit-content;
   margin: 0 auto;
 }
 
 @media (max-width: 1024px) {
   .call__form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 500px;
-    width: 100%;
+    max-width: 480px;
     margin: 0 auto;
+  }
+
+  .call__form p {
+    flex-direction: column;
+    width: 100%;
   }
 }
 
@@ -802,7 +811,6 @@ body:has(.mobile-nav--show) {
   border: 1px solid black;
   font-size: 16px;
   padding: 0 20px;
-  margin-right: 20px;
 }
 
 @media (max-width: 1024px) {
@@ -815,7 +823,7 @@ body:has(.mobile-nav--show) {
 .call__btn {
   display: inline-block;
   height: 56px;
-  padding: 0 20px;
+  padding: 0 40px;
   font-size: 16px;
   border: none;
   border-radius: 0;
@@ -823,6 +831,14 @@ body:has(.mobile-nav--show) {
   color: white;
   font-weight: bold;
   cursor: pointer;
+}
+
+.call .wpcf7-spinner {
+  margin: 0;
+  position: absolute;
+  bottom: 28px;
+  right: 10px;
+  transform: translateY(50%);
 }
 
 .contacts {
@@ -925,6 +941,11 @@ body:has(.mobile-nav--show) {
 }
 
 .contacts__form {
+  max-width: 480px;
+}
+
+.contacts__form p {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -937,6 +958,7 @@ body:has(.mobile-nav--show) {
   height: 56px;
   padding: 0 26px;
   font-size: 16px;
+  width: 100%;
 }
 
 .contacts__message {
@@ -959,6 +981,14 @@ body:has(.mobile-nav--show) {
   margin-left: auto;
   cursor: pointer;
   transition: all 0.2s ease;
+}
+
+.contacts .wpcf7-spinner {
+  margin: 0;
+  position: absolute;
+  bottom: 28px;
+  right: 10px;
+  transform: translateY(50%);
 }
 
 .contacts__btn:hover {
@@ -1046,39 +1076,102 @@ body:has(.mobile-nav--show) {
 
 .blog__content {
   background-color: var(--background-light);
+  font-size: 20px;
+}
+
+.blog__content h1,
+.blog__content h2,
+.blog__content h3,
+.blog__content h4,
+.blog__content h5,
+.blog__content h6 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.blog__content h1 {
+  font-size: 2em;
+}
+
+.blog__content h2 {
+  font-size: 1.8em;
+}
+
+.blog__content h3 {
+  font-size: 1.6em;
+}
+
+.blog__content h4 {
+  font-size: 1.4em;
+}
+
+.blog__content h5 {
+  font-size: 1.2em;
+}
+
+.blog__content h6 {
+  font-size: 1em;
+}
+
+.blog__content ol,
+.blog__content ul {
+  margin: 5px 0;
+  margin-left: 60px;
+  font-size: 1em;
+}
+
+.blog__content p {
+  margin: 10px 0;
+  font-size: 1em;
+}
+
+.blog__posts {
+  background-color: var(--background-light);
 }
 
 .blog__post-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px 20px;
+  grid-template-columns: repeat(3, calc(33.333% - 30px));
+  gap: 40px;
 }
 
 @media (max-width: 1280px) {
   .blog__post-cards {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, calc(50% - 10px));
     max-width: 900px;
+    gap: 40px 20px;
     margin: 0 auto;
   }
 }
 
 @media (max-width: 830px) {
   .blog__post-cards {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(1, 100%);
   }
 }
 
 .post-card {
+  display: flex;
+  flex-direction: column;
   padding: 30px;
   border-radius: 5px;
   color: black;
   background-color: white;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  min-height: 300px;
+  transition: all 0.2s ease;
+}
+
+.post-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
 
 .post-card__title {
   text-align: center;
   margin-bottom: 10px;
+  text-transform: uppercase;
+  text-overflow: clip;
 }
 
 @media (max-width: 480px) {
@@ -1088,13 +1181,15 @@ body:has(.mobile-nav--show) {
 }
 
 .post-card__text {
+  font-size: 18px;
   font-weight: 300;
+  margin-bottom: 40px;
 }
 
 .post-card__more {
   display: inline-block;
   color: var(--secondary);
-  margin-top: 40px;
+  margin-top: auto;
 }
 
 .wpcf7-not-valid-tip {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
   <meta charset="UTF-8">
@@ -62,7 +62,7 @@
       </button>
       <ul class="mobile-nav__links">
         <li class="mobile-nav__item">
-          <a href="#call-us" class="mobile-nav__link">START</a>
+          <a href="/#call-us" class="mobile-nav__link">START</a>
         </li>
         <li class="mobile-nav__item">
           <a href="#contact" class="mobile-nav__link">KONTAKT</a>
@@ -71,7 +71,7 @@
           <a href="#" class="mobile-nav__link">HÄUFIG GESTELLTE FRAGEN</a>
         </li>
         <li class="mobile-nav__item">
-          <a href="#about-us" class="mobile-nav__link">ÜBER UNS</a>
+          <a href="/#about-us" class="mobile-nav__link">ÜBER UNS</a>
         </li>
         <li class="mobile-nav__item">
           <a href="/blog" class="mobile-nav__link">BLOG</a>
