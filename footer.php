@@ -80,9 +80,14 @@
   </section>
   <section class="footer__bottom">
     <div class="footer__bottom-container container">
-      <a href="/">
+      <!-- <a href="/">
         <img class="footer__bottom-logo" src="<?php bloginfo('template_url') ?>/images/firma_blitz_logo.png" alt="logo">
-      </a>
+      </a> -->
+      <?php
+      if (has_custom_logo()) {
+        echo get_custom_logo();
+      }
+      ?>
       <p class="footer__bottom-text">
         &copy; FIRMA BLITZ
       </p>

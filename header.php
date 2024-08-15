@@ -18,9 +18,11 @@
       <span class="header__burger-item"></span>
       <span class="header__burger-item"></span>
     </button>
-    <a href="/">
-      <img src="<?php bloginfo('template_url') ?>/images/firma_blitz_logo.png" alt="logo" class="header__logo">
-    </a>
+    <?php
+      if (has_custom_logo()) {
+        echo get_custom_logo();
+      }
+    ?>
     <ul class="header__socials">
       <li class="header__socials-item">
         <a href="<?php the_field("whatsapp-link", 11); ?>" target="_blank" class="header__link">
@@ -60,26 +62,15 @@
         <span></span>
         <span></span>
       </button>
-      <ul class="mobile-nav__links">
-        <li class="mobile-nav__item">
-          <a href="/#call-us" class="mobile-nav__link">START</a>
-        </li>
-        <li class="mobile-nav__item">
-          <a href="#contact" class="mobile-nav__link">KONTAKT</a>
-        </li>
-        <li class="mobile-nav__item">
-          <a href="#" class="mobile-nav__link">HÄUFIG GESTELLTE FRAGEN</a>
-        </li>
-        <li class="mobile-nav__item">
-          <a href="/#about-us" class="mobile-nav__link">ÜBER UNS</a>
-        </li>
-        <li class="mobile-nav__item">
-          <a href="/blog" class="mobile-nav__link">BLOG</a>
-        </li>
-        <li class="mobile-nav__item">
-          <a href="tel:<?php the_field("phone-number", 11); ?>" class="mobile-nav__link">015158347844</a>
-        </li>
-      </ul>
+      <?php
+      if (has_nav_menu('mobile-nav')) {
+        wp_nav_menu([
+          'theme-location' => 'mobile-nav',
+          'container' => false,
+          'menu_class' => 'mobile-nav__links'
+        ]);
+      }
+      ?>
       <ul class="mobile-nav__socials">
         <li class="mobile-nav__social-link">
           <a href="<?php the_field("whatsapp-link", 11); ?>" class="mobile-nav__social-link" target="_blank">

@@ -5,7 +5,7 @@ const dateInput = document.getElementById("date-input");
 
 function closeMobileNav(e) {
   if (
-    e.target.closest(".mobile-nav__item") ||
+    e.target.closest(".mobile-nav__links li") ||
     e.target.closest(".mobile-nav__cross") ||
     e.target.classList.contains("mobile-nav")
   ) {
