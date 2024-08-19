@@ -692,10 +692,6 @@ body:has(.mobile-nav--show) {
   }
 }
 
-.request__form {
-  max-width: 480px;
-}
-
 .request__form p {
   position: relative;
   display: flex;
@@ -705,6 +701,9 @@ body:has(.mobile-nav--show) {
 }
 
 @media (max-width: 1024px) {
+  .request__form {
+    max-width: 480px;
+  }
   .request__form p {
     flex-direction: column;
     max-width: 500px;
@@ -725,7 +724,7 @@ body:has(.mobile-nav--show) {
   border-radius: 0;
   border: 1px solid white;
   height: 56px;
-  width: 180px;
+  width: 100%;
   color: white;
   font-size: 16px;
   padding: 0 20px;
@@ -1220,4 +1219,15 @@ body:has(.mobile-nav--show) {
   margin: 0 auto;
   padding: 5px 15px;
   margin-top: 40px;
+}
+
+.wpcf7 form.sent .wpcf7-response-output {
+  border-color: #46b450;
+  background-color: #e1eee2;
+  color: #46b450;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 5px 15px;
+  margin-top: 40px;
+  border-radius: 5px;
 }
